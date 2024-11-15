@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Background Example</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;  /* Removes default margins */
+            overflow: hidden;  /* Prevents scrollbars */
+        }
+
+        canvas {
+            display: block;  /* Avoids extra spacing issues */
+        }
+    </style>
+</head>
+<body>
+    <canvas></canvas>
+    <script>
+        const canvas = document.querySelector('canvas');
+        const ctx = canvas.getContext('2d');
+        const image = new Image();
+        var x =0;
+        var speed = 0.5;
+   
+        
+      
+
+
+
+        // Set canvas size to match the window size
+        canvas.width = 500;
+        canvas.height = 500;
+
+        // Load the image and draw it when ready
+        image.src = "./assets/sprites/spr_ball2.png";
+        image.onload = () => 
+        {
+            document.addEventListener("mouseup",()=>{
+                    console.log("nenem")
+            
+            Gameloop();
+            })
+            
+        };
+    function Gameloop(){
+     
+       ctx.clearRect(0,0,canvas.width,canvas.height);
+       
+     
+
+        ctx.drawImage(image,x, 0, 100, 100);
+        x+=speed;
+        
+        requestAnimationFrame(Gameloop)
+    }
+
+        // Optional: Resize the canvas when the window size changes
+    
+    </script>
+</body>
+</html>
